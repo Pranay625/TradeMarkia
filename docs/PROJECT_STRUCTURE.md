@@ -173,7 +173,7 @@ After this skeleton is complete, implement in this order:
 3. **text_cleaner.py** - Text preprocessing
 4. **embedding_model.py** - Generate embeddings
 5. **clustering.py** - Fuzzy clustering
-6. **semantic_cache.py** - Core cache logic ⭐
+6. **semantic_cache.py** - Core cache logic 
 7. **query_engine.py** - Orchestration
 8. **api/schemas.py** - API models
 9. **api/main.py** - API endpoints
@@ -188,7 +188,7 @@ All settings are centralized in `config.py`:
 - API settings
 - File paths
 
-## 🔒 Production Considerations
+##  Production Considerations
 
 - **Thread Safety**: Semantic cache uses threading.Lock
 - **Error Handling**: Try-catch blocks in all API endpoints

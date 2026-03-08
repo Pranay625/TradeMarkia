@@ -39,27 +39,27 @@ loader.print_stats()
 
 **Cleaning Steps**:
 
-1. **Remove Email Headers** ✂️
+1. **Remove Email Headers** 
    - Removes: `From:`, `Subject:`, `Organization:`, `Lines:`, `X-*:`, etc.
    - Reasoning: Headers are metadata, not content
 
-2. **Remove Quoted Replies** ✂️
+2. **Remove Quoted Replies** 
    - Removes: Lines starting with `>`
    - Reasoning: Quotes are duplicated content from previous messages
 
-3. **Remove Signatures** ✂️
+3. **Remove Signatures** 
    - Removes: Text after `--`, `___`, or `===`
    - Reasoning: Signatures are boilerplate (contact info, disclaimers)
 
-4. **Remove URLs** ✂️
+4. **Remove URLs** 
    - Removes: `http://`, `https://`, `ftp://`, `www.`
    - Reasoning: URLs don't contribute to semantic meaning
 
-5. **Remove Email Addresses** ✂️
+5. **Remove Email Addresses** 
    - Removes: `user@domain.com` patterns
    - Reasoning: Email addresses are PII and not semantic content
 
-6. **Normalize Whitespace** 🧹
+6. **Normalize Whitespace** 
    - Removes: Excessive blank lines and spaces
    - Reasoning: Clean formatting for consistent processing
 
