@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  semantic-cache-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: semantic-cache-api
+    ports:
+      - "8000:8000"
+    volumes:
+      # Mount models directory (read-only)
+      - ./models:/app/models:ro
+      # Mount cache directory (read-write)
+      - ./cache:/app/cache
+    environment:
+      # Path configuration
+      - BASE_DIR=/app
+      - DATA_DIR=/app/data
+      - MODELS_DIR=/app/models
+      - CACHE_DIR=/app/cache
+      
+      # Model configuration
+      - EMBEDDING_MODEL=all-MiniLM-L6-v2
+      - EMBEDDING_DEVICE=cpu
+      - N_CLUSTERS=20
+      
+      # Cache configuration
+      - SIMILARITY_THRESHOLD=0.85
+      - CACHE_MAX_SIZE=1000
+      - USE_CLUSTERING=true
+      
+      # API configuration
+      - API_HOST=0.0.0.0
+      - API_PORT=8000
+      
+      # Logging
+      - LOG_LEVEL=INFO
+    
+    restart: unless-stopped
+    
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s

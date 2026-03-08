@@ -1,0 +1,5 @@
+# Cache Directory
+
+This directory stores runtime cache files.
+
+Cache files are auto-generated when the API runs and are not committed to git.

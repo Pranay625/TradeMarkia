@@ -1,0 +1,18 @@
+# Models Directory
+
+This directory stores generated model files.
+
+## Generate Models
+
+Run these scripts to generate the required model files:
+
+```bash
+python scripts/generate_embeddings.py
+python scripts/train_clustering.py
+```
+
+This will create:
+- `embeddings.pkl` (~29 MB) - Document embeddings
+- `clusters.pkl` (~3 MB) - Clustering model
+
+These files are required for the API to run but are not committed to git due to their size.
